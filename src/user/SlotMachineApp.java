@@ -1,4 +1,5 @@
 package user;
+import machine.*;
 
 public class SlotMachineApp {
 	
@@ -12,8 +13,9 @@ public class SlotMachineApp {
 		// identify what theme to use
 		
 		// add game logic here
-		
-		
+
+		ThemedMachine machine = new ThemedMachine(0);
+		machine.displaySlots();
 	}
 	
 }

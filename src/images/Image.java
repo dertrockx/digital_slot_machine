@@ -8,4 +8,8 @@ abstract public class Image {
     abstract public String getName();
     abstract public String getName(int codeName);
 
+    public int getCodeName(){
+        return this.codeName;
+    }
+
 }

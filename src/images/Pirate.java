@@ -2,9 +2,15 @@ package images;
 
 public class Pirate extends Image {
     final static public int COUNT = 5;
+
     public Pirate(int codeName){
         this.codeName = codeName;
     }
+
+    public int getCodeName(){
+        return this.codeName;
+    }
+
 
     public String getName(){
         String name = "";

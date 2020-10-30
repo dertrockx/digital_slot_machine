@@ -6,6 +6,8 @@ public class Fruit extends Image {
         this.codeName = codeName;
     }
 
+
+
     public String getName(){
         String name = "";
         switch(this.codeName) {
