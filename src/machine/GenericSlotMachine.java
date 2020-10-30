@@ -10,6 +10,8 @@ abstract class GenericSlotMachine implements DigitalSlotMachine{
 	protected int slots;
 
 	//add attributes
+	protected ArrayList<Slot> slotCollection;
+
 
 	/**
 	 * play() method - this is where shuffling happens

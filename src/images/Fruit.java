@@ -1,7 +1,7 @@
 package images;
 
 public class Fruit extends Image {
-
+    final static public int COUNT = 3;
     public Fruit(int codeName){
         this.codeName = codeName;
     }
