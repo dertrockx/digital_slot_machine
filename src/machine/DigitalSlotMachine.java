@@ -1,4 +1,4 @@
-package main;
+package machine;
 
 public interface DigitalSlotMachine {
 

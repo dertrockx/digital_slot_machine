@@ -1,4 +1,4 @@
-package main;
+package machine;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,7 +25,7 @@ abstract class GenericSlotMachine implements DigitalSlotMachine{
 	 * 
 	 */
 	public String draw() {
-
+		return null;
 	}
 
 
