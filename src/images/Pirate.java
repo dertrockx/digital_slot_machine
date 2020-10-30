@@ -4,7 +4,7 @@ public class Pirate extends Image {
     final static public int COUNT = 5;
 
     public Pirate(int codeName){
-        this.codeName = codeName;
+        super(codeName);
     }
 
     public int getCodeName(){

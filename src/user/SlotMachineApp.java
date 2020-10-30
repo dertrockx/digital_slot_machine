@@ -15,9 +15,10 @@ public class SlotMachineApp {
 		// add game logic here
 
 		ThemedMachine machine = new ThemedMachine(0);
-		machine.displaySlots();
+//		machine.displaySlots();
 		machine.play();
-		machine.displaySlots();
+		machine.draw();
+//		machine.displaySlots();
 	}
 	
 }

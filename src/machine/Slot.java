@@ -39,6 +39,10 @@ public class Slot {
         }
         this.rows = this.images.size();
     }
+
+    public int getRows() {
+        return this.rows;
+    }
     public Image getImage(int row){
         if(row >= this.rows)
             return null;

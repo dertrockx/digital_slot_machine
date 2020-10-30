@@ -1,12 +1,20 @@
 package images;
 
-abstract public class Image {
+public class Image {
 //    protected String name;
     protected int codeName;
     public int COUNT;
 
-    abstract public String getName();
-    abstract public String getName(int codeName);
+    public Image(int codeName){
+        this.codeName = codeName;
+    }
+
+    public String getName(){
+        return null;
+    };
+    public String getName(int codeName) {
+        return null;
+    };
 
     public int getCodeName(){
         return this.codeName;

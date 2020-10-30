@@ -8,6 +8,8 @@ public class ThemedMachine extends GenericSlotMachine {
         this.slotCollection = new ArrayList<>();
         this.theme = theme;
         this.slots = this.generateRandomNumber(3, 7);
+        this.drawnImageCodeNames = new int[this.slots];
+        this.drawnImageNames = new String[this.slots];
         this.generateSlots();
     }
 
@@ -16,6 +18,21 @@ public class ThemedMachine extends GenericSlotMachine {
             Slot slot = this.slotCollection.get(i);
             slot.shuffleDeck();
         }
+    }
+
+    public String draw(){
+        // loop through slots
+        Slot slot = this.slotCollection.get(0);
+        int indexToDraw = generateRandomNumber(0, slot.getRows()-1);
+        for(int i = 0; i < this.slotCollection.size(); i++){
+            // get image at drawnIndex
+            slot = this.slotCollection.get(i);
+            Image img = slot.getImage(indexToDraw);
+            this.drawnImageCodeNames[i] = img.getCodeName();
+            this.drawnImageNames[i] = img.getName();
+        }
+        super.draw();
+        return null;
     }
 
     private void generateSlots(){

@@ -1,5 +1,7 @@
 package machine;
 
+import images.Image;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -11,8 +13,8 @@ abstract class GenericSlotMachine implements DigitalSlotMachine{
 
 	//add attributes
 	protected ArrayList<Slot> slotCollection;
-
-
+	protected int[] drawnImageCodeNames;
+	protected String[] drawnImageNames;
 	/**
 	 * play() method - this is where shuffling happens
 	 */
@@ -27,6 +29,7 @@ abstract class GenericSlotMachine implements DigitalSlotMachine{
 	 * 
 	 */
 	public String draw() {
+		this.displayDrawnImages();
 		return null;
 	}
 
@@ -68,7 +71,10 @@ abstract class GenericSlotMachine implements DigitalSlotMachine{
 	 * 
 	 */
 	private void displayDrawnImages() {
-
+		for(int i = 0; i < this.drawnImageNames.length; i++){
+			System.out.print("[" + drawnImageNames[i] + "] ");
+		}
+		System.out.println();
 	}
 
 	
