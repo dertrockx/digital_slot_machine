@@ -18,6 +18,8 @@ public class SlotMachineApp {
 //		machine.displaySlots();
 		machine.play();
 		machine.draw();
+
+//		machine.displayImageFrequency();
 //		machine.displaySlots();
 	}
 	

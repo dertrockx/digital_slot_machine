@@ -15,6 +15,8 @@ abstract class GenericSlotMachine implements DigitalSlotMachine{
 	protected ArrayList<Slot> slotCollection;
 	protected int[] drawnImageCodeNames;
 	protected String[] drawnImageNames;
+
+	protected int[] frequencyArray;
 	/**
 	 * play() method - this is where shuffling happens
 	 */
@@ -30,6 +32,7 @@ abstract class GenericSlotMachine implements DigitalSlotMachine{
 	 */
 	public String draw() {
 		this.displayDrawnImages();
+		this.displayResult();
 		return null;
 	}
 
@@ -37,12 +40,27 @@ abstract class GenericSlotMachine implements DigitalSlotMachine{
 	/**
 	 * Get the frequency of each image
 	 * 
-	 * @param drawnImages
+	 * @param drawnImages drawnImages
 	 */
 	private void determineImageFrequency(int[] drawnImages) {
-
+		this.frequencyArray = new int[ this.slots ];
+		for(int i = 0; i < this.frequencyArray.length; i++){
+			this.compareSlots(i);
+		}
 	}
-
+	/**
+	 * Compare the occurence of each image after game "draw"
+	 *
+	 * @param index
+	 */
+	private void compareSlots(int index) {
+		int freqOfImageAtIndex = 0;
+		for(int i = 0; i < this.drawnImageCodeNames.length; i++){
+			if(this.drawnImageCodeNames[index] == this.drawnImageCodeNames[i])
+				freqOfImageAtIndex++;
+		}
+		this.frequencyArray[index] = freqOfImageAtIndex;
+	}
 	/**
 	 * Determine the event.
 	 * The largest value must be greater than given threshold to be considered
@@ -54,13 +72,8 @@ abstract class GenericSlotMachine implements DigitalSlotMachine{
 
 	}
 
-	/**
-	 * Compare the occurence of each image after game "draw"
-	 * 
-	 * @param index
-	 */
-	private void compareSlots(int index) {
-	}
+
+
 
 	
 	public abstract String getImageStr(int num);
@@ -82,7 +95,8 @@ abstract class GenericSlotMachine implements DigitalSlotMachine{
 	 * Displays the event/result (win,lose,good game)
 	 */
 	private void displayResult() {
-
+		this.determineImageFrequency(this.drawnImageCodeNames);
+		this.determineEvent();
 	}
 	
 	

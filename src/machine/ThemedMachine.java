@@ -57,6 +57,14 @@ public class ThemedMachine extends GenericSlotMachine {
         }
     }
 
+    public void displayImageFrequency(){
+        for(int i = 0; i < this.drawnImageNames.length; i++){
+            System.out.println(
+                    this.drawnImageNames[i] + " (" + this.drawnImageCodeNames[i] + ") : " + this.frequencyArray[i]
+            );
+        }
+    }
+
     private int generateRandomNumber(int min, int max){
         Random r = new Random();
         return r.nextInt( (max - min) + 1 ) + min;
