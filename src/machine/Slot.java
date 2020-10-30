@@ -2,6 +2,7 @@ package machine;
 import images.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Slot {
     ArrayList<Image> images;
@@ -14,6 +15,9 @@ public class Slot {
         this.theme = theme % 2;
 
         this.populateSlot();
+    }
+    public void shuffleDeck(){
+        Collections.shuffle(this.images);
     }
 
     // genereate images for slot

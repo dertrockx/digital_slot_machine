@@ -11,6 +11,13 @@ public class ThemedMachine extends GenericSlotMachine {
         this.generateSlots();
     }
 
+    public void play(){
+        for(int i = 0; i < this.slots; i++){
+            Slot slot = this.slotCollection.get(i);
+            slot.shuffleDeck();
+        }
+    }
+
     private void generateSlots(){
 //        Slot slot = new Slot(0);
 //        this.slotCollection.add(slot);

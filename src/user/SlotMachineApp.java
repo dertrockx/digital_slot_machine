@@ -16,6 +16,8 @@ public class SlotMachineApp {
 
 		ThemedMachine machine = new ThemedMachine(0);
 		machine.displaySlots();
+		machine.play();
+		machine.displaySlots();
 	}
 	
 }
