@@ -11,7 +11,7 @@ public class SlotMachineApp {
 		// print out token at the beginning of the game
 		System.out.println("Player has " + p.getToken() + " tokens");
 		// check if game over
-		while(p.getToken() > 0){
+		while(p.getToken() > 0 && gameCount <= 10){
 			// identify what theme to use
 			int theme = gameCount-1;
 			ThemedMachine machine = new ThemedMachine(theme);
