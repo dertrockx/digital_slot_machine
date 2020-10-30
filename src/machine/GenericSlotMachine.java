@@ -2,10 +2,7 @@ package machine;
 
 import images.Image;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 
 abstract class GenericSlotMachine implements DigitalSlotMachine{
 
@@ -17,6 +14,10 @@ abstract class GenericSlotMachine implements DigitalSlotMachine{
 	protected String[] drawnImageNames;
 
 	protected int[] frequencyArray;
+
+	protected ArrayList<String> winningImages;
+
+	protected String event;
 	/**
 	 * play() method - this is where shuffling happens
 	 */
@@ -31,7 +32,7 @@ abstract class GenericSlotMachine implements DigitalSlotMachine{
 	 * 
 	 */
 	public String draw() {
-		this.displayDrawnImages();
+//		this.displayDrawnImages();
 		this.displayResult();
 		return null;
 	}
@@ -69,7 +70,54 @@ abstract class GenericSlotMachine implements DigitalSlotMachine{
 	 */
 	
 	private void determineEvent() {
+		this.winningImages = new ArrayList<>();
 
+		int mostOccurrences = frequencyArray[0];
+
+		for(int i = 1; i < this.frequencyArray.length; i++){
+			if(mostOccurrences <= frequencyArray[i]){
+				mostOccurrences = frequencyArray[i];
+			}
+		}
+
+		for(int i = 0; i < this.drawnImageNames.length;i++) {
+			for(int j = 0; j < this.drawnImageNames.length;j++) {
+				if(i == j && this.frequencyArray[j] == mostOccurrences)
+					this.winningImages.add( this.drawnImageNames[i] );
+			}
+		}
+
+		this.removeDuplicates();
+
+//		prints the image/s with the highest occurrence
+		for(int i = 0; i < this.winningImages.size(); i++) {
+			String str = this.winningImages.get(i);
+			System.out.print(str+" ");
+		}
+		System.out.println("- "+mostOccurrences+"/"+this.slots+" slots");
+
+		this.displayDrawnImages();
+
+		// check the event
+		double game = (double) mostOccurrences / this.slots;
+
+		if(game == 1.0){
+			System.out.println("Event: " + this.WINNER);
+			this.event = this.WINNER;
+		} else if( game > this.GOOD_GAME_PERCENTAGE){
+			System.out.println("Event: " + this.GOOD_GAME);
+			this.event = this.GOOD_GAME;
+		} else {
+			System.out.println("Event: " + this.LOSER);
+			this.event = this.LOSER;
+		}
+
+	}
+
+	private void removeDuplicates(){
+		Set<String> set = new LinkedHashSet<>(this.winningImages);
+		this.winningImages.clear();
+		this.winningImages.addAll(set);
 	}
 
 
