@@ -16,7 +16,7 @@ public class Player {
 		this.tokenOnHand--;
 	}
 
-	void gainToken(int token){
+	void addToken(int token){
 		this.tokenOnHand += token;
 	}
 

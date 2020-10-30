@@ -92,7 +92,12 @@ abstract class GenericSlotMachine implements DigitalSlotMachine{
 //		prints the image/s with the highest occurrence
 		for(int i = 0; i < this.winningImages.size(); i++) {
 			String str = this.winningImages.get(i);
-			System.out.print(str+" ");
+			System.out.print(str);
+			if(i < this.winningImages.size() - 1){
+				System.out.print(", ");
+			} else {
+				System.out.print(" ");
+			}
 		}
 		System.out.println("- "+mostOccurrences+"/"+this.slots+" slots");
 

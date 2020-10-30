@@ -74,4 +74,8 @@ public class ThemedMachine extends GenericSlotMachine {
     public String getImageStr(int num) {
         return null;
     }
+
+    public String getEvent(){
+        return this.event;
+    }
 }
